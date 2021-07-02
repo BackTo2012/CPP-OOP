@@ -57,13 +57,14 @@ ostream& operator<<(ostream& out, const ComplexNumber& z) {
 	{
 		if (z.im > 0)
 		{
-			out << z.re << "+" << z.im << "i";
+
+			out << z.re ;
 			return out;
 
 		}
 		else
 		{
-			return out  << z.re << z.im << "i";
+			out  << z.re ;
 			return out;
 		}
 	}
