@@ -18,25 +18,33 @@ public:
 };
 //StudybarCommentEnd
 
-class Fan: public IElectricalEquipment
-{
+
+
+class Fan: public IElectricalEquipment {
 public:
-	virtual void PowerOn() = 0; //每种电器都能打开
-	virtual void PowerOff() = 0; //每种电器都能关闭
-	virtual ~IElectricalEquipment() { cout << "\nThis is Virtual ~IElectricalEquipment()"; };
+	void PowerOn() {cout << "风扇打开" << endl;}
+	void PowerOff() {cout << "风扇关闭" << endl;}
 };
-class Light: public IElectricalEquipment
-{
+class Light : public IElectricalEquipment {
+public:
+	void PowerOn() { cout << "电灯打开" << endl;}
+	void PowerOff() {cout << "电灯关闭" << endl;}
+};
+class FancySwitch: public Switch {
+public:
+	void On() {cout << "Fancy Switch On" << endl; Elec->PowerOn();      }
+	void Off() {cout << "Fancy Switch Off" << endl; Elec->PowerOff();    }
+};
+class NormalSwitch: public Switch {
+public:
+	void On() {cout << "Normal Switch On" << endl;  Elec->PowerOn();    }
+	void Off() {cout << "Normal Switch Off" << endl; Elec->PowerOff();     }
+};
 
-};
-class FancySwitch: public Switch
-{
 
-};
-class NormalSwitch: public Switch
-{
 
-};
+
+
 //StudybarCommentBegin
 int main(int argc, char** argv) {
 
