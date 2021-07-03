@@ -43,20 +43,13 @@ public:
 		}
 		return temp->data;
 	}
+	List(const Node<T>& z) {
+		head = z.head;
+		tail = z.tail;
+	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
 //StudybarCommentBegin
+
 int main() {
 	int n;
 	cin >> n;
@@ -65,8 +58,9 @@ int main() {
 	for (i = 0; i < n; i++) {
 		list.push_back(i);
 	}
+	List<int> list2(list);
+	list2.push_back(123456);
 	cin >> n;
-	cout << list[n - 2] << " " << list[n];
+	cout << list2[n - 2] << " " << list2[n];
 }
-
 //StudybarCommentEnd
