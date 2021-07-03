@@ -16,8 +16,8 @@ private:
 public:
     List();
     ~List();
-    void append(T val);    // é“¾å°¾å¢åŠ ä¸€ä¸ªå…ƒç´ 
-    void travalList()const;    // ä»å¤´èŠ‚ç‚¹éå†è¾“å‡ºé“¾è¡¨
+    void append(T val);    // Á´Î²Ôö¼ÓÒ»¸öÔªËØ
+    void travalList()const;    // ´ÓÍ·½Úµã±éÀúÊä³öÁ´±í
 };
 
 template <typename T>
@@ -63,7 +63,7 @@ void List<T>::append(T val) {
         }
         tmpp->link = p;
     }
-}   // é“¾å°¾å¢åŠ ä¸€ä¸ªå…ƒç´ 
+}   // Á´Î²Ôö¼ÓÒ»¸öÔªËØ
 
 
 
@@ -112,11 +112,11 @@ int main(void)
     list4.travalList();
 
     List<string> list5;
-    list5.append("ç¼–ç¨‹");
-    list5.append("æ•°å­¦");
-    list5.append("è®¡ç®—ç³»ç»Ÿï¼ˆè®¡ç®—å·¥å…·æœ¬èº«ï¼‰");
-    list5.append("å¥åº·å¿«ä¹ç”Ÿæ´»");
-    list5.append("åŸ¹å…»æ–¹æ¡ˆ");
+    list5.append("±à³Ì");
+    list5.append("ÊıÑ§");
+    list5.append("¼ÆËãÏµÍ³£¨¼ÆËã¹¤¾ß±¾Éí£©");
+    list5.append("½¡¿µ¿ìÀÖÉú»î");
+    list5.append("ÅàÑø·½°¸");
     list5.travalList();
 
 }
