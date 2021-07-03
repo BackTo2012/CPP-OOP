@@ -7,10 +7,10 @@ public:
 	T data;
 	Node* next;
 	Node() {next = NULL;};
-	Node(const T& x): data(x) {next = NULL;};
-};
-template <class T>
-class List
+	Node(const T& x): data(x) , (next)  NULL{	};
+	};
+	template <class T>
+	class List
 {
 	Node<T> *head, *tail;
 public:
@@ -34,35 +34,76 @@ public:
 		delete head;
 	}
 	void push_back(const T& x) {
-		Node<T> *newhead = new Node<T>;
-		newhead->data = x;
-		newhead->next = NULL;
+		// Node<T> *newhead = new Node<T>;
+		// newhead->data = x;
+		// newhead->next = NULL;
+		// if (head == NULL)
+		// {
+		// 	head = newhead;
+		// 	tail = newhead;
+		// }
+		// else
+		// {
+		// 	tail->next = newhead;
+		// 	tail = newhead;
+		// }
+		Node<T> *p = new Node<T>(x);
+		p->data = x;
+		p->next = NULL;
 		if (head == NULL)
 		{
-			head = newhead;
-			tail = newhead;
+			head = p; tail = p;
 		}
 		else
 		{
-			tail->next = newhead;
-			tail = newhead;
+			Node<T> *tmpp = tail;
+			tmpp->next = p;
+			tail = p;
 		}
 	}
-	T& operator[](int i) {
-		int Index = 0;
-		Node<T> *temp = head;
-		while (temp->next != NULL)
+	T& operator[](int n) {
+		// int Index = 0;
+		// Node<T> *temp = head;
+		// while (temp->next != NULL)
+		// {
+		// 	if (Index == i)
+		// 		return temp->data;
+		// 	Index++;
+		// 	temp = temp->next;
+		// }
+		// return temp->data;
+		int def = 0;
+		if (head == NULL)
 		{
-			if (Index == i)
-				return temp->data;
-			Index++;
-			temp = temp->next;
+			cout << "empty"; exit(0);
 		}
-		return temp->data;
+		else
+		{
+			Node<T>* t = head;
+			do
+			{
+				if (def > n)
+					return t->data;
+				t = t->next;
+				def++;
+			} while (t != NULL);
+		}
 	}
-	List(const List<T>& z) {
-		head = z.head;
-		tail = z.tail;
+	List(const List<T>& list) {
+		head = new Node<T>(0);
+		tail = head;
+		Node<T>* t = list.head;
+		Node<T>* temp = head;
+		while (t->next != NULL)
+		{
+			t = t->next;
+			Node<T>* newnode = new Node<T>(t->data);
+			temp->next = newnode;
+			temp = newnode;
+			tail = temp;
+		}
+		// head = z.head;
+		// tail = z.tail;
 		// if (head == NULL)
 		// {
 		// 	head = NULL;
@@ -80,24 +121,49 @@ public:
 		// 	push_back(temp->data);
 		// }
 	}
-	List<T>& operator=(const List<T>& x) {
-		if (x.head == NULL)
-		{
-			head = NULL;
-			tail = NULL;
-			return *this;
-		}
-		else
-		{
-			head = NULL;
-			tail = NULL;
-			Node<T>*temp = x.head;
-			while (temp->next != NULL) {
-				push_back(temp->data);
-				temp = temp->next;
+	List<T>& operator=(const List<T>& l) {
+		// 	if (x.head == NULL)
+		// 	{
+		// 		head = NULL;
+		// 		tail = NULL;
+		// 		return *this;
+		// 	}
+		// 	else
+		// 	{
+		// 		head = NULL;
+		// 		tail = NULL;
+		// 		Node<T>*temp = x.head;
+		// 		while (temp->next != NULL) {
+		// 			push_back(temp->data);
+		// 			temp = temp->next;
+		// 		}
+		// 		push_back(temp->data);
+		// 		return *this;
+		// 	}
+		// }
+		if (this == &l) return *this;
+		else {
+			if (head->next != NULL)
+			{
+				Node<T>* list = head->next;
+				while (list != NULL)
+				{
+					Node<T>* tmpp = list;
+					list = list->next;
+					delete tmpp;
+				}
 			}
-			push_back(temp->data);
-			return *this;
+			this->tail = this->head;
+			Node<T>* t = l.head;
+			Node<T>* temp = this->head;
+			while (t->next != NULL)
+			{
+				t = t->next;
+				Node<T>* newnode = new Node<T>(t->data);
+				temp->next = newnode;
+				temp = newnode;
+				tail = temp;
+			}
 		}
 	}
 };
