@@ -7,10 +7,10 @@ public:
 	T data;
 	Node* next;
 	Node() {next = NULL;};
-	Node(const T& x): data(x) , (next)  NULL{	};
-	};
-	template <class T>
-	class List
+	Node(const T& x): data(x) , next (NULL) {}
+};
+template <class T>
+class List
 {
 	Node<T> *head, *tail;
 public:
@@ -23,7 +23,7 @@ public:
 	~List() {
 		if (head->next != NULL)
 		{
-			Node<T>* temp = head->next;
+			Node<T>*temp = head->next;
 			while (temp != NULL)
 			{
 				Node<T>* tmpp = temp;
@@ -34,19 +34,6 @@ public:
 		delete head;
 	}
 	void push_back(const T& x) {
-		// Node<T> *newhead = new Node<T>;
-		// newhead->data = x;
-		// newhead->next = NULL;
-		// if (head == NULL)
-		// {
-		// 	head = newhead;
-		// 	tail = newhead;
-		// }
-		// else
-		// {
-		// 	tail->next = newhead;
-		// 	tail = newhead;
-		// }
 		Node<T> *p = new Node<T>(x);
 		p->data = x;
 		p->next = NULL;
@@ -62,16 +49,6 @@ public:
 		}
 	}
 	T& operator[](int n) {
-		// int Index = 0;
-		// Node<T> *temp = head;
-		// while (temp->next != NULL)
-		// {
-		// 	if (Index == i)
-		// 		return temp->data;
-		// 	Index++;
-		// 	temp = temp->next;
-		// }
-		// return temp->data;
 		int def = 0;
 		if (head == NULL)
 		{
@@ -102,45 +79,8 @@ public:
 			temp = newnode;
 			tail = temp;
 		}
-		// head = z.head;
-		// tail = z.tail;
-		// if (head == NULL)
-		// {
-		// 	head = NULL;
-		// 	tail = NULL;
-		// }
-		// else
-		// {
-		// 	head = NULL;
-		// 	tail = NULL;
-		// 	Node<T>*temp = head;
-		// 	while (temp->next != NULL) {
-		// 		push_back(temp->data);
-		// 		temp = temp->next;
-		// 	}
-		// 	push_back(temp->data);
-		// }
 	}
 	List<T>& operator=(const List<T>& l) {
-		// 	if (x.head == NULL)
-		// 	{
-		// 		head = NULL;
-		// 		tail = NULL;
-		// 		return *this;
-		// 	}
-		// 	else
-		// 	{
-		// 		head = NULL;
-		// 		tail = NULL;
-		// 		Node<T>*temp = x.head;
-		// 		while (temp->next != NULL) {
-		// 			push_back(temp->data);
-		// 			temp = temp->next;
-		// 		}
-		// 		push_back(temp->data);
-		// 		return *this;
-		// 	}
-		// }
 		if (this == &l) return *this;
 		else {
 			if (head->next != NULL)

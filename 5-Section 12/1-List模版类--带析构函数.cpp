@@ -43,19 +43,26 @@ List<T>::~List() {
     cout << "~List is called!  Its sizeof(ListNode<T>) is " << sizeof(ListNode<T>) << ", sizeof(T) is " << sizeof(T) << endl;
     ListNode<T>* p = Head, *psave = p;
     while (p != NULL)    {
-        p = p->link;
+        psave = p;
         cout << "The data " << psave->data << " will be deleted!" << endl;
+        p = p->link;
     }
-
-
 }
 template <typename T>
 void List<T>::append(T val) {
-    ListNode<T>* p = Head;
-    while (p != NULL)    {
-        p = p->link;
-    }
+    ListNode<T>* p = new ListNode<T>;
     p->data = val;
+    p->link = NULL;
+    if (Head == NULL)
+        Head = p;
+    else
+    {
+        ListNode<T>* tmpp = Head;
+        while (tmpp->link != NULL) {
+            tmpp = tmpp->link;
+        }
+        tmpp->link = p;
+    }
 }   // 链尾增加一个元素
 
 
