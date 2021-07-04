@@ -2,7 +2,7 @@
 using namespace std;
 class Point
 {
-
+private:
 	double x, y;
 public:
 	void SetPoint(double x = 0, double y = 0) {
@@ -30,10 +30,6 @@ public:
 private:
 	double w, h;
 };
-
-
-
-
 //StudybarCommentBegin
 int main()
 {

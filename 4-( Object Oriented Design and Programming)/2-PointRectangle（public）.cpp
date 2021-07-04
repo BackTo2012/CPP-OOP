@@ -28,11 +28,6 @@ public:
 		return h;
 	}
 };
-
-
-
-
-
 //StudybarCommentBegin
 int main()
 {
