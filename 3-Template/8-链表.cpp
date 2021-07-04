@@ -23,7 +23,7 @@ public:
 		Node<T> *newhead = new Node<T>;
 		newhead->data = x;
 		newhead->next = NULL;
-		if (head == NULL)5
+		if (head == NULL)
 			head = newhead;
 		else
 		{	Node<T>* temp = head;
