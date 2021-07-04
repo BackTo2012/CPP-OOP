@@ -46,7 +46,8 @@ SmartPtr<T>::SmartPtr(T* pValue) {
 
 template <typename T>
 SmartPtr<T>::~SmartPtr(void) {
-    delete m_pData;
+    SAFE_DELETE(m_pData);
+
 }
 
 template <typename T>

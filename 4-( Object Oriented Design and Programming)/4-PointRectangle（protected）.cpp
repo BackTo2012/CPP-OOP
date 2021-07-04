@@ -31,15 +31,6 @@ public:
 private:
 	double w, h;
 };
-
-
-
-
-
-
-
-
-
 //StudybarCommentBegin
 int main()
 {

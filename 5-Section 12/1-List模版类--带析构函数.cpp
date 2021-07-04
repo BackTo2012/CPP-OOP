@@ -46,7 +46,9 @@ List<T>::~List() {
         psave = p;
         cout << "The data " << psave->data << " will be deleted!" << endl;
         p = p->link;
+        // delete psave;
     }
+
 }
 template <typename T>
 void List<T>::append(T val) {

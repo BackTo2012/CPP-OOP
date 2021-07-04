@@ -8,9 +8,6 @@ public:
 };
 //StudybarCommentEnd
 
-
-
-
 class Cat: public Animal
 {
 public:

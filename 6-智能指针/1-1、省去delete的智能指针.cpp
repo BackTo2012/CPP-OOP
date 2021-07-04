@@ -40,11 +40,13 @@ template <typename T>
 SmartPtr<T>::SmartPtr(T* pValue) {
     m_pReference = new KRefCount;
     m_pData = pValue;
+    m_pReference->AddRef();
 }
 
 template <typename T>
 SmartPtr<T>::~SmartPtr(void) {
-    delete m_pData;
+    SAFE_DELETE( m_pData);
+    SAFE_DELETE( m_pReference);
 }
 
 
