@@ -82,7 +82,6 @@ SmartPtr<T>& SmartPtr<T>::operator=(const SmartPtr<T>& sp) {
 		m_pReference = sp.m_pReference;
 		m_pReference->AddRef();
 	}
-
 	return *this;
 }
 template <typename T>

@@ -27,20 +27,14 @@ class newEquation: public CEquation
 {
 	virtual double fun (double x) {return x * x * x * x * x * x - 20 * x * x - 1;}
 };
-
-
-
 double slove(CEquation *pbase)
 {
 	return pbase->bisectionSolve(0, 10) ;
 }
-
 int main(int argc, char* argv[])
 {
 	newEquation  b;
-
 	cout << slove(&b) << endl;
-
 	return 0;
 }
 //StudybarCommentEnd
