@@ -9,6 +9,7 @@ public:
 };
 template <class T>
 class List
+
 {
 	Node<T> *head, *tail;
 public:
@@ -43,7 +44,7 @@ public:
 		}
 		return temp->data;
 	}
-	List(const Node<T>& z) {
+	List(const List<T>& z) {
 		head = z.head;
 		tail = z.tail;
 	}
