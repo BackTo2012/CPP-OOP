@@ -13,7 +13,6 @@ class KRefCount
 {
 public:
 	KRefCount(): m_nCount(0) {}
-
 public:
 	long AddRef() { return InterlockedIncrement(&m_nCount); } //给m_nCount加一，用InterlockedIncrement是多线程安全。
 	long Release() { return InterlockedDecrement(&m_nCount); } //给m_nCount减一，用InterlockedIncrement是多线程安全。

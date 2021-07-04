@@ -40,10 +40,6 @@ public:
 //StudybarCommentEnd
 
 
-
-
-
-
 template <typename T>
 SmartPtr<T>::SmartPtr(T* pValue) {
 	m_pReference = new KRefCount;
@@ -68,6 +64,7 @@ template <typename T>
 inline T* SmartPtr<T>::operator->() {
 	return m_pData;
 }
+
 template <typename T>
 SmartPtr<T>& SmartPtr<T>::operator=(const SmartPtr<T>& sp) {
 	if (this != &sp)
@@ -85,16 +82,6 @@ SmartPtr<T>& SmartPtr<T>::operator=(const SmartPtr<T>& sp) {
 
 	return *this;
 }
-
-
-
-
-
-
-
-
-
-
 
 //StudybarCommentBegin
 class CTest
